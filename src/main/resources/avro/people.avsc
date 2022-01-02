@@ -1,6 +1,6 @@
 {
 	"type": "record",
-	"name": "People",
+	"name": "PeopleAvro",
 	"namespace": "br.com.springkafka",
 	"fields": [
 		{

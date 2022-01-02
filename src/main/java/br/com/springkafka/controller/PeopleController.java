@@ -1,6 +1,6 @@
 package br.com.springkafka.controller;
 
-import br.com.springkafka.People;
+import br.com.springkafka.PeopleAvro;
 import br.com.springkafka.controller.dto.PeopleDTO;
 import br.com.springkafka.producer.PeopleProducer;
 import lombok.AllArgsConstructor;
@@ -26,7 +26,7 @@ public class PeopleController {
     public ResponseEntity<Void> sendMessage(@RequestBody PeopleDTO peopleDTO) {
         var id = UUID.randomUUID().toString();
 
-        var message = People.newBuilder()
+        var message = PeopleAvro.newBuilder()
                 .setId(id)
                 .setName(peopleDTO.getName())
                 .setCpf(peopleDTO.getCpf())
