@@ -1,5 +1,6 @@
 package br.com.springkafka.domain;
 
+import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.Entity;
@@ -8,6 +9,11 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 public class Book {
 
     @Id
