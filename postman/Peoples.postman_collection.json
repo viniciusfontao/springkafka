@@ -1,0 +1,31 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Peoples",
+		"_postman_id": "d9c51c2d-bb9d-4f48-80e2-81e2c7d817c3",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Produce people",
+			"request": {
+				"url": "localhost:8080/peoples",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Person\",\n\t\"cpf\": \"123456789\",\n\t\"books\": [\n\t\t\"Book1\", \n\t\t\"Book2\"\n\t]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
