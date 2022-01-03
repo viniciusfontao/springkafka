@@ -1,6 +1,6 @@
-package br.com.springkafka.repository;
+package br.com.springkafka.adapter.repository;
 
-import br.com.springkafka.domain.People;
+import br.com.springkafka.domain.model.People;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,4 +1,4 @@
-package br.com.springkafka.configuration;
+package br.com.springkafka.adapter.configuration;
 
 import org.apache.kafka.clients.admin.NewTopic;
 import org.springframework.beans.factory.annotation.Value;

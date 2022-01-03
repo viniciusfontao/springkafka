@@ -1,4 +1,4 @@
-package br.com.springkafka.controller.dto;
+package br.com.springkafka.adapter.dto;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -9,6 +9,7 @@ import java.util.List;
 @Builder
 public class PeopleDTO {
 
+    private String id;
     private String name;
     private String cpf;
 

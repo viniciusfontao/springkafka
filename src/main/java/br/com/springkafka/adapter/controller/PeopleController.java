@@ -1,8 +1,8 @@
-package br.com.springkafka.controller;
+package br.com.springkafka.adapter.controller;
 
 import br.com.springkafka.PeopleAvro;
-import br.com.springkafka.controller.dto.PeopleDTO;
-import br.com.springkafka.producer.PeopleProducer;
+import br.com.springkafka.adapter.dto.PeopleRequestDTO;
+import br.com.springkafka.adapter.producer.PeopleProducer;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -23,7 +23,7 @@ public class PeopleController {
     private final PeopleProducer peopleProducer;
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Void> sendMessage(@RequestBody PeopleDTO peopleDTO) {
+    public ResponseEntity<Void> sendMessage(@RequestBody PeopleRequestDTO peopleDTO) {
         var id = UUID.randomUUID().toString();
 
         var message = PeopleAvro.newBuilder()

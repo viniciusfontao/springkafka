@@ -1,12 +1,10 @@
-package br.com.springkafka.domain;
+package br.com.springkafka.domain.model;
 
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Builder
@@ -14,14 +12,15 @@ import javax.persistence.ManyToOne;
 @AllArgsConstructor
 @Getter
 @Setter
-public class Book {
+public class People {
 
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
     private String name;
+    private String cpf;
 
-    @ManyToOne
-    private People people;
+    @OneToMany(mappedBy = "people", cascade = CascadeType.ALL)
+    private List<Book> books;
 }

@@ -1,4 +1,4 @@
-package br.com.springkafka.producer;
+package br.com.springkafka.adapter.producer;
 
 import br.com.springkafka.PeopleAvro;
 import lombok.extern.slf4j.Slf4j;
