@@ -1,6 +1,6 @@
 package br.com.springkafka.adapter.consumer;
 
-import br.com.springkafka.PeopleAvro;
+import br.com.springkafkaproducer.PeopleAvro;
 import br.com.springkafka.adapter.mapper.PeopleDTOMapper;
 import br.com.springkafka.domain.usecase.PeopleConsumerUseCase;
 import lombok.RequiredArgsConstructor;
@@ -19,7 +19,7 @@ public class PeopleConsumer {
 
     private final PeopleDTOMapper peopleDTOMapper;
 
-    @KafkaListener(topics = "${topic.name}")
+    @KafkaListener(topics = "${topic.people.name}")
     public void consumer(ConsumerRecord<String, PeopleAvro> record, Acknowledgment ack) {
         var peopleAvro = record.value();
 

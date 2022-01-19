@@ -1,6 +1,6 @@
 package br.com.springkafka.adapter.mapper;
 
-import br.com.springkafka.PeopleAvro;
+import br.com.springkafkaproducer.PeopleAvro;
 import br.com.springkafka.adapter.dto.PeopleDTO;
 import org.springframework.stereotype.Component;
 
