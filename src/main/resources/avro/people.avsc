@@ -1,7 +1,7 @@
 {
 	"type": "record",
 	"name": "PeopleAvro",
-	"namespace": "br.com.springkafka",
+	"namespace": "br.com.springkafkaproducer",
 	"fields": [
 		{
 			"name": "id",
