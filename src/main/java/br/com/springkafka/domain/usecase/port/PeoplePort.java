@@ -1,8 +1,8 @@
 package br.com.springkafka.domain.usecase.port;
 
-import br.com.springkafka.domain.model.People;
+import br.com.springkafka.adapter.dto.PeopleDTO;
 
 public interface PeoplePort {
 
-    void save(People people);
+    void save(PeopleDTO people);
 }
