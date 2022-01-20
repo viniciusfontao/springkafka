@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>br.com</groupId>
-    <artifactId>springkafka</artifactId>
+    <artifactId>springkafkaconsumer</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>springkafka</name>
+    <name>springkafkaconsumer</name>
     <description>Demo project for Spring Boot with kafka</description>
     <properties>
         <java.version>11</java.version>
@@ -24,6 +24,8 @@
         <jacoco.percentage.minimum>1.00</jacoco.percentage.minimum>
         <jacoco.branch.minimum>1.00</jacoco.branch.minimum>
         <pitest.mutation.threshold>100</pitest.mutation.threshold>
+
+        <dockerfile-maven-version>1.4.13</dockerfile-maven-version>
     </properties>
 
     <repositories>
@@ -203,16 +205,16 @@
                 <configuration>
                     <mutationThreshold>${pitest.mutation.threshold}</mutationThreshold>
                     <targetClasses>
-                        <param>br.com.springkafka*</param>
+                        <param>br.com.springkafkaconsumer.*</param>
                     </targetClasses>
                     <targetTests>
-                        <param>br.com.springkafka.*</param>
+                        <param>br.com.springkafkaconsumer.*</param>
                     </targetTests>
                     <excludedClasses>
-                        <param>br.com.springkafka.SpringkafkaApplication.*</param>
-                        <param>br.com.springkafka.domain.model.*</param>
-                        <param>br.com.springkafka.adapter.dto.*</param>
-                        <param>br.com.springkafka.adapter.repository.*</param>
+                        <param>br.com.springkafkaconsumer.SpringkafkaApplication.*</param>
+                        <param>br.com.springkafkaconsumer.domain.model.*</param>
+                        <param>br.com.springkafkaconsumer.adapter.dto.*</param>
+                        <param>br.com.springkafkaconsumer.adapter.repository.*</param>
                     </excludedClasses>
                     <avoidCallsTo>
                         <avoidCallsTo>java.util.logging</avoidCallsTo>
@@ -225,5 +227,35 @@
             </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>docker</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.spotify</groupId>
+                        <artifactId>dockerfile-maven-plugin</artifactId>
+                        <version>${dockerfile-maven-version}</version>
+                        <executions>
+                            <execution>
+                                <id>default</id>
+                                <goals>
+                                    <goal>build</goal>
+                                    <goal>push</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <repository>springkafkaconsumer</repository>
+                            <buildArgs>
+                                <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
+                            </buildArgs>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 
 </project>
