@@ -1,9 +1,6 @@
 package br.com.springkafka.adapter.mapper;
 
-import br.com.springkafkaproducer.CarAvro;
 import org.junit.jupiter.api.Test;
-
-import java.util.UUID;
 
 import static br.com.springkafka.utils.MockUtils.getCarAvro;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -18,8 +15,8 @@ public class CarDTOMapperTest {
 
         var carDTO = carDTOMapper.toDTO(carAvro);
 
-        assertThat(carAvro.getId().toString()).isEqualTo(carDTO.getId());
-        assertThat(carAvro.getName().toString()).isEqualTo(carDTO.getName());
-        assertThat(carAvro.getBrand().toString()).isEqualTo(carDTO.getBrand());
+        assertThat(carDTO.getId()).isEqualTo(carAvro.getId());
+        assertThat(carDTO.getName()).isEqualTo(carAvro.getName());
+        assertThat(carDTO.getBrand()).isEqualTo(carAvro.getBrand());
     }
 }
