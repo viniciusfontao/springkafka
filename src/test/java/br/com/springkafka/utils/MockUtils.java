@@ -1,8 +1,13 @@
 package br.com.springkafka.utils;
 
 import br.com.springkafka.adapter.dto.CarDTO;
+import br.com.springkafka.adapter.dto.PeopleDTO;
 import br.com.springkafkaproducer.CarAvro;
+import br.com.springkafkaproducer.PeopleAvro;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.UUID;
 
 public class MockUtils {
@@ -21,6 +26,25 @@ public class MockUtils {
                 .setId(UUID.randomUUID().toString())
                 .setName("207")
                 .setBrand("Peugeot")
+                .build();
+    }
+
+    public static PeopleDTO getPeopleDTO() {
+        return PeopleDTO
+                .builder()
+                .id(UUID.randomUUID().toString())
+                .name("Vinicius")
+                .cpf("00011122233")
+                .books(Collections.singletonList("Book1"))
+                .build();
+    }
+
+    public static PeopleAvro getPeopleAvro() {
+        return PeopleAvro.newBuilder()
+                .setId(UUID.randomUUID().toString())
+                .setName("Vinicius")
+                .setCpf("00011122233")
+                .setBooks(Collections.singletonList("Book1"))
                 .build();
     }
 }
